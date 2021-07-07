@@ -1,55 +1,62 @@
-// import React from 'react';
-import React, { Component } from 'react';
+import React, { Component } from "react";
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import '../../App.css';
+import Registration from './Registration';
+import Login from './Login';
+import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+class SignUp extends Component {
+  render() {
+    return (
+      <>
+        <Router basename="/react-auth-ui/">
+        <div className="App">
+          <div className="appAside" />
+          <div className="appForm">
+            <div className="pageSwitcher">
+              <NavLink
+                to="/sign-in"
+                activeClassName="pageSwitcherItem-active"
+                className="pageSwitcherItem"
+              >
+                Sign In
+              </NavLink>
+              <NavLink
+                exact
+                to="/"
+                activeClassName="pageSwitcherItem-active"
+                className="pageSwitcherItem"
+              >
+                Sign Up
+              </NavLink>
+            </div>
 
+            <div className="formTitle">
+              <NavLink
+                to="/sign-in"
+                activeClassName="formTitleLink-active"
+                className="formTitleLink"
+              >
+                Sign In
+              </NavLink>{" "}
+              or{" "}
+              <NavLink
+                exact
+                to="/"
+                activeClassName="formTitleLink-active"
+                className="formTitleLink"
+              >
+                Sign Up
+              </NavLink>
+            </div>
 
-export default function SignUp() {
-  
-const toggleForm = () => {
-  const container = document.querySelector('.container');
-  container.classList.toggle('active');
-};
-  return (
-  <>
-
-<body>
-  <section>
-    <div class="container">
-      <div class="user signinBx">
-        <div class="imgBx"><img src="https://raw.githubusercontent.com/WoojinFive/CSS_Playground/master/Responsive%20Login%20and%20Registration%20Form/img1.jpg" alt="" /></div>
-        <div class="formBx">
-          <form action="" onsubmit="return false;">
-            <h2>Sign In</h2>
-            <input type="text" name="" placeholder="Username" />
-            <input type="password" name="" placeholder="Password" />
-            <input type="submit" name="" value="Login" />
-            <p class="signup">
-              Don't have an account ?
-              <a href="#" onclick={toggleForm}>Sign Up.</a>
-            </p>
-          </form>
+            <Route exact path="/" component={Login} />
+            <Route path="/sign-in" component={Registration} />
+          </div>
         </div>
-      </div>
-      <div class="user signupBx">
-        <div class="formBx">
-          <form action="" onsubmit="return false;">
-            <h2>Create an account</h2>
-            <input type="text" name="" placeholder="Username" />
-            <input type="email" name="" placeholder="Email Address" />
-            <input type="password" name="" placeholder="Create Password" />
-            <input type="password" name="" placeholder="Confirm Password" />
-            <input type="submit" name="" value="Sign Up" />
-            <p class="signup">
-              Already have an account ?
-              <a href="#" onclick={toggleForm}>Sign in.</a>
-            </p>
-          </form>
-        </div>
-        <div class="imgBx"><img src="https://raw.githubusercontent.com/WoojinFive/CSS_Playground/master/Responsive%20Login%20and%20Registration%20Form/img2.jpg" alt="" /></div>
-      </div>
-    </div>
-  </section>
-</body>
-  </>
-  )
+      </Router>
+    </>
+  );
 }
+}
+export default SignUp;
