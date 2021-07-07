@@ -50,8 +50,8 @@ class SignUp extends Component {
               </NavLink>
             </div>
 
-            <Route exact path="/" component={Login} />
-            <Route path="/sign-in" component={Registration} />
+            <Route exact path="/" component={Registration} />
+            <Route path="/sign-in" component={Login} />
           </div>
         </div>
       </Router>

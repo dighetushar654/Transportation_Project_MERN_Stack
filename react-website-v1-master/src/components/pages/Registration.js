@@ -1,10 +1,5 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import '../../App.css';
-import {
-  FacebookLoginButton,
-  InstagramLoginButton
-} from "react-social-login-buttons";
 
 class Registration extends Component {
   constructor() {
@@ -12,7 +7,9 @@ class Registration extends Component {
 
     this.state = {
       email: "",
-      password: ""
+      password: "",
+      name: "",
+      hasAgreed: false
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -29,8 +26,8 @@ class Registration extends Component {
     });
   }
 
-  handleSubmit(event) {
-    event.preventDefault();
+  handleSubmit(e) {
+    e.preventDefault();
 
     console.log("The form was submitted with the following data:");
     console.log(this.state);
@@ -39,22 +36,21 @@ class Registration extends Component {
   render() {
     return (
       <div className="formCenter">
-        <form className="formFields" onSubmit={this.handleSubmit}>
+        <form onSubmit={this.handleSubmit} className="formFields">
           <div className="formField">
-            <label className="formFieldLabel" htmlFor="email">
-              E-Mail Address
+            <label className="formFieldLabel" htmlFor="name">
+              Full Name
             </label>
             <input
-              type="email"
-              id="email"
+              type="text"
+              id="name"
               className="formFieldInput"
-              placeholder="Enter your email"
-              name="email"
-              value={this.state.email}
+              placeholder="Enter your full name"
+              name="name"
+              value={this.state.name}
               onChange={this.handleChange}
             />
           </div>
-
           <div className="formField">
             <label className="formFieldLabel" htmlFor="password">
               Password
@@ -69,27 +65,60 @@ class Registration extends Component {
               onChange={this.handleChange}
             />
           </div>
-
           <div className="formField">
-            <button className="formFieldButton">Sign In</button>{" "}
-            <Link to="/sign-up" className="formFieldLink">
-              Create an account
-            </Link>
+            <label className="formFieldLabel" htmlFor="email">
+              E-Mail Address
+            </label>
+            <input
+              type="email"
+              id="email"
+              className="formFieldInput"
+              placeholder="Enter your email"
+              name="email"
+              value={this.state.email}
+              onChange={this.handleChange}
+            />
+          </div>
+          <div className="formField">
+            <label className="formFieldLabel" htmlFor="email">
+              Mob No.
+            </label>
+            <input
+              type="mob"
+              id="no"
+              className="formFieldInput"
+              placeholder="Enter your mob no"
+              name="no"
+              value={this.state.email}
+              onChange={this.handleChange}
+            />
           </div>
 
-          <div className="socialMediaButtons">
-            <div className="facebookButton">
-              <FacebookLoginButton onClick={() => alert("Hello")} />
-            </div>
+          <div className="formField">
+            <label className="formFieldCheckboxLabel">
+              <input
+                className="formFieldCheckbox"
+                type="checkbox"
+                name="hasAgreed"
+                value={this.state.hasAgreed}
+                onChange={this.handleChange}
+              />{" "}
+              I agree all statements in{" "}
+              <a href="null" className="formFieldTermsLink">
+                terms of service
+              </a>
+            </label>
+          </div>
 
-            <div className="instagramButton">
-              <InstagramLoginButton onClick={() => alert("Hello")} />
-            </div>
+          <div className="formField">
+            <button className="formFieldButton">Sign Up</button>{" "}
+            <Link to="/sign-in" className="formFieldLink">
+              I'm already member
+            </Link>
           </div>
         </form>
       </div>
     );
   }
 }
-
 export default Registration;

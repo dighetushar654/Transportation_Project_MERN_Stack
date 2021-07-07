@@ -1,12 +1,11 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import '../../App.css';
 import {
   FacebookLoginButton,
   InstagramLoginButton
 } from "react-social-login-buttons";
 
-class Login extends Component {
+class SignInForm extends Component {
   constructor() {
     super();
 
@@ -72,7 +71,7 @@ class Login extends Component {
 
           <div className="formField">
             <button className="formFieldButton">Sign In</button>{" "}
-            <Link to="/sign-up" className="formFieldLink">
+            <Link to="/" className="formFieldLink">
               Create an account
             </Link>
           </div>
@@ -92,4 +91,4 @@ class Login extends Component {
   }
 }
 
-export default Login;
+export default SignInForm;
