@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from "react";
 import Navbar from './components/Navbar';
 import './App.css';
 import Home from './components/pages/Home';
@@ -7,9 +7,11 @@ import Services from './components/pages/Services';
 import Registration from './components/pages/Registration';
 import SignUp from './components/pages/SignUp';
 
-function App() {
+class App extends Component {
+render() {
   return (
     <>
+     
       <Router>
         <Navbar />
         <Switch>
@@ -22,5 +24,5 @@ function App() {
     </>
   );
 }
-
+}
 export default App;
