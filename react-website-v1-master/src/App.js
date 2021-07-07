@@ -20,7 +20,7 @@ render() {
           <Route path='/services' component={Services} />
           <Route path='/vehicle' component={VehicleRegistration} />
           <Route path='/registration' component={Registration} />
-          <Route path='/signup' component={SignUp} />
+          <Route path='/sign-up' component={SignUp} />
 
         </Switch>
       </Router>
