@@ -89,7 +89,7 @@ class Registration extends Component {
               className="formFieldInput"
               placeholder="Enter your mob no"
               name="no"
-              value={this.state.email}
+              value={this.state.no}
               onChange={this.handleChange}
             />
           </div>
