@@ -12,6 +12,7 @@ const router = express.Router();
 // const User = require("./models/userSchema");
 Port = process.env.Port;
 
+app.use(express.json());
 app.use("/registerUser", userRoute);
 
 app.listen(Port, () => {
