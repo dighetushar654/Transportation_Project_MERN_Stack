@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 class Registration extends Component {
   constructor() {
@@ -9,6 +10,7 @@ class Registration extends Component {
       email: "",
       password: "",
       name: "",
+      no: "",
       hasAgreed: false
     };
 
@@ -29,8 +31,16 @@ class Registration extends Component {
   handleSubmit(e) {
     e.preventDefault();
 
-    console.log("The form was submitted with the following data:");
-    console.log(this.state);
+    const registered = {
+      name: this.state.name,
+      password: this.state.password,
+      email: this.state.email,
+      no: this.state.no
+    }
+    axios.post("http://localhost:4000/registerUser", registered)
+    .then(response =>{
+      console.log(response.data)
+    })
   }
 
   render() {
@@ -111,7 +121,7 @@ class Registration extends Component {
           </div>
 
           <div className="formField">
-            <button className="formFieldButton">Sign Up</button>{" "}
+            <button className="formFieldButton" onclick={this.handleSubmit}>Submit</button>{" "}
             <Link to="/sign-in" className="formFieldLink">
               I'm already member
             </Link>
