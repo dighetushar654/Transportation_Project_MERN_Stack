@@ -1,10 +1,7 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import '../../App.css';
+import { HashRouter as Router, Route, NavLink } from "react-router-dom";
 import Registration from './Registration';
 import Login from './Login';
-import { Link } from "react-router-dom";
-import { NavLink } from "react-router-dom";
 class SignUp extends Component {
   render() {
     return (
