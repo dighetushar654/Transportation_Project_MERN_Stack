@@ -2,7 +2,8 @@ const mongoose = require("mongoose");
 
 const homeimgSchema = new mongoose.Schema({
     img:{
-        type:String
+        type: String,
+        required:true 
     }
 },
 {timestamps: true});
