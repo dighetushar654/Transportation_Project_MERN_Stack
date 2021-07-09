@@ -20,6 +20,7 @@ const vehicleSchema = new mongoose.Schema({
     vehicleType: {
         type: String
     }
-})
+},
+{timestamps: true});
 
 module.exports = mongoose.model("myVehicle", vehicleSchema);
