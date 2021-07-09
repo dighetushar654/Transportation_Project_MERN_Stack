@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
+
 
 class SignUpForm extends Component {
   constructor() {
@@ -9,6 +11,9 @@ class SignUpForm extends Component {
       email: "",
       password: "",
       name: "",
+      no:"",
+      city:"",
+      vehicleType:"",
       hasAgreed: false
     };
 
@@ -29,8 +34,18 @@ class SignUpForm extends Component {
   handleSubmit(e) {
     e.preventDefault();
 
-    console.log("The form was submitted with the following data:");
-    console.log(this.state);
+    const registered = {
+      name: this.state.name,
+      password: this.state.password,
+      email: this.state.email,
+      no: this.state.no,
+      city: this.state.city,
+      vehicleType: this.state.vehicleType
+    }
+    axios.post("http://localhost:4000/registerVehicle", registered)
+    .then(response =>{
+      console.log(response.data)
+    })
   }
 
   render() {
@@ -52,44 +67,44 @@ class SignUpForm extends Component {
             />
           </div>
           <div className="formField">
-            <label className="formFieldLabel" htmlFor="name">
+            <label className="formFieldLabel" htmlFor="email">
               Mobile Number
             </label>
             <input
-              type="text"
-              id="name"
+              type="mob"
+              id="no"
               className="formFieldInput"
               placeholder="Enter your mobile number"
-              name="name"
-              value={this.state.name}
+              name="no"
+              value={this.state.no}
               onChange={this.handleChange}
             />
           </div>
           <div className="formField">
-            <label className="formFieldLabel" htmlFor="name">
+            <label className="formFieldLabel" htmlFor="email">
               City
             </label>
             <input
-              type="text"
-              id="name"
+              type="city"
+              id="city"
               className="formFieldInput"
               placeholder="Enter your city"
-              name="name"
-              value={this.state.name}
+              name="city"
+              value={this.state.city}
               onChange={this.handleChange}
             />
           </div>
           <div className="formField">
-            <label className="formFieldLabel" htmlFor="name">
+            <label className="formFieldLabel" htmlFor="email">
               Vehicle Type
             </label>
             <input
-              type="text"
-              id="name"
+              type="vehicle"
+              id="vehicleType"
               className="formFieldInput"
-              placeholder="Enter your vehicle typoe name"
-              name="name"
-              value={this.state.name}
+              placeholder="Enter your vehicle type"
+              name="vehicleType"
+              value={this.state.vehicleType}
               onChange={this.handleChange}
             />
           </div>
