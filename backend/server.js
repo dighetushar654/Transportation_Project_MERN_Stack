@@ -1,5 +1,7 @@
 const express = require("express");
 const app = express();
+var cors = require('cors')
+app.use(cors())
 
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
@@ -10,12 +12,6 @@ const vehicleRoute = require("./routes/vehicle");
 
 const router = express.Router();
 
-// const User = require("./models/userSchema");
-Port = process.env.Port;
-<<<<<<< HEAD
-=======
-
->>>>>>> e04613339718ce1860c4059c210cc1fe4317b1b4
 app.use(express.json());
 app.use("/registerUser", userRoute);
 app.use("/registerVehicle", vehicleRoute);
