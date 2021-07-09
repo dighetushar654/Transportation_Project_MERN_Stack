@@ -121,7 +121,7 @@ class Registration extends Component {
           </div>
 
           <div className="formField">
-            <button className="formFieldButton" onclick={this.handleSubmit}>Submit</button>{" "}
+            <button className="formFieldButton" onclick={this.handleSubmit}>Sign Up</button>{" "}
             <Link to="/sign-in" className="formFieldLink">
               I'm already member
             </Link>

@@ -9,12 +9,14 @@ dotenv.config();
 require("./db/conn");
 const userRoute = require("./routes/user");
 const vehicleRoute = require("./routes/vehicle");
+const homeimgRoute = require("./routes/homeimg");
 
 const router = express.Router();
 
 app.use(express.json());
 app.use("/registerUser", userRoute);
 app.use("/registerVehicle", vehicleRoute);
+app.use("/homeimages", homeimgRoute);
 
 
 app.listen(4000, () => {
