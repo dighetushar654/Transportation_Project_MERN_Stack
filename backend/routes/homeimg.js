@@ -34,8 +34,11 @@ router.post("/", upload.single('Image'),async(req, res) => {
 
 });
 
-
-
-
-
+router.get("/", async (req, res) => {
+    try {
+      const images = await HomeImages.find().limit(5);
+      res.json(images);
+    } catch (err) {
+      console.log(err);
+    }});
 module.exports = router;
