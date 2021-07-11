@@ -6,7 +6,7 @@
 }
 
 .home,
-.services,
+/* .services, */
 .products,
 .sign-up {
   display: flex;
@@ -16,14 +16,14 @@
   font-size: 3rem;
 }
 
-.services {
+/* .services {
   background-image: url('/images/img-2.jpg');
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
   color: #fff;
   font-size: 100px;
-}
+} */
 
 .products {
   background-image: url('/images/img-1.jpg');
