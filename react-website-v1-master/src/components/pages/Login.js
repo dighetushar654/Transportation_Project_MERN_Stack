@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
+
 import '../../App.css';
 import {
   FacebookLoginButton,
@@ -9,7 +11,6 @@ import {
 class Login extends Component {
   constructor() {
     super();
-
     this.state = {
       email: "",
       password: ""
@@ -32,8 +33,17 @@ class Login extends Component {
   handleSubmit(event) {
     event.preventDefault();
 
-    console.log("The form was submitted with the following data:");
-    console.log(this.state);
+    const data = {
+      email: this.state.email,
+      password: this.state.password
+    }
+
+    axios.post("http://localhost:4000/registerUser/signin", data).then(res =>{
+      console.log(res)
+    }).catch(err =>{
+      console.log(err)
+    })
+   
   }
 
   render() {
