@@ -1,5 +1,7 @@
 const router = require("express").Router();
 const Vehicle = require("../models/vehicleModel");
+const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
 
 
 // Async-Await
@@ -40,6 +42,38 @@ router.get("/:id", async (req, res) => {
     } catch (err) {
       res.status(500).json(err);
     }
+});
+
+router.post("/signin", async (req,res) => {
+  try {
+      const {email, password} = req.body;
+
+      if (!email || !password) {
+        res.status(400).json({error:"Plz fill the data"});
+      }
+
+      const ownerLogin = await Vehicle.findOne({email: email});
+
+      if (ownerLogin) {
+
+        const isMatch = await bcrypt.compare(password, ownerLogin.password);
+        
+        const token = await ownerLogin.genrateAuthToken();
+        console.log(token);
+
+        if (!isMatch) {
+            res.status(400).json({error:"Invalid Password"});
+        } else {
+            res.status(200).json({message:"vehicle owner Signin Successfully.."})
+        }
+      } else {
+            res.status(400).json({error:"Invalid Creditials"});
+      }
+      
+  } catch (err) {
+    res.status(500).json(err);
+    console.log(err);
+  }
 });
 
 module.exports = router; 
