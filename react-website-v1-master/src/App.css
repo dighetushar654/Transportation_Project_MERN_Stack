@@ -53,6 +53,7 @@
 .appAside {
   width: 50%;
   background-color: #6b5b95;
+  background-image: url('imagetrans.jpg');
 }
 
 .appForm {
