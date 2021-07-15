@@ -3,6 +3,19 @@ const User = require("../models/userModel");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
+var jwtAuth = (req, res, next) => {
+  var token = req.headers.authorization;
+  token = token.split("  ")[1];
+  jwt.verify(token, process.env.SECRET_KEY, function(err, decoded){
+    if(err){
+      res.status(401).json("invalid tokken")
+    }else{
+      next();
+    }
+
+  })
+}
+
 
 router.post("/", async (req, res) => {
 
@@ -21,6 +34,8 @@ router.post("/", async (req, res) => {
         const newuser = new User({ name, password, email, no});
 
         const userRegister = await newuser.save();
+        const myToken = await newuser.genrateAuthToken();
+
       
         if(userRegister) {
           res.status(200).json({message: "User registerd succesfully..."});
@@ -33,7 +48,7 @@ router.post("/", async (req, res) => {
     }
   });
 
-  router.get("/:id", async (req, res) => {
+  router.get("/:id", jwtAuth, async (req, res) => {
     try {
         const data = await User.findById(req.params.id);
         res.status(200).json(data);
@@ -56,9 +71,6 @@ router.post("/signin", async (req,res) => {
         if (userLogin) {
 
           const isMatch = await bcrypt.compare(password, userLogin.password);
-          
-          const token = await userLogin.genrateAuthToken();
-          console.log(token);
 
           if (!isMatch) {
               res.status(400).json({error:"Invalid Password"});
