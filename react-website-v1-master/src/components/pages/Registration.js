@@ -37,6 +37,7 @@ class Registration extends Component {
       email: this.state.email,
       no: this.state.no
     }
+  
     axios.post("http://localhost:4000/registerUser", registered)
     .then(response =>{
       console.log(response.data)
