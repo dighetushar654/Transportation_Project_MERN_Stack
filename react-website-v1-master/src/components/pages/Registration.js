@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { ToastContainer, toast } from 'react-toastify';
+
 
 class Registration extends Component {
   constructor() {
@@ -40,6 +42,13 @@ class Registration extends Component {
   
     axios.post("http://localhost:4000/registerUser", registered)
     .then(response =>{
+      if(response.status == 200) {
+        toast.success("Added Successfully");
+        window.location.href = "sign-up#/react-auth-ui/sign-in"
+
+      } else {
+        toast.error("Something Went Wrong!");
+      }
       console.log(response.data)
     })
   }
