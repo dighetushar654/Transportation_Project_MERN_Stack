@@ -47,10 +47,6 @@ class SignUpForm extends Component {
           if(response.status == 200) {
             toast.success("Added Successfully");
             window.location.href = "/vehicle#/react-auth-ui/sign-in"
-<<<<<<< HEAD
-=======
-
->>>>>>> 1f8f2cea38e43a8b46e3ac466865f1a95791103c
           } else {
             toast.error("Something Went Wrong!");
           }
