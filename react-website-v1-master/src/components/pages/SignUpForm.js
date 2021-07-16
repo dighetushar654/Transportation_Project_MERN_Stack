@@ -1,12 +1,13 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-
+import { ToastContainer, toast } from 'react-toastify';
+import {useHistory} from 'react-router-dom';
 
 class SignUpForm extends Component {
+  
   constructor() {
     super();
-
     this.state = {
       email: "",
       password: "",
@@ -30,22 +31,32 @@ class SignUpForm extends Component {
       [name]: value
     });
   }
-
+  
   handleSubmit(e) {
     e.preventDefault();
-
-    const registered = {
-      name: this.state.name,
-      password: this.state.password,
-      email: this.state.email,
-      no: this.state.no,
-      city: this.state.city,
-      vehicleType: this.state.vehicleType
+    try {
+        const registered = {
+          name: this.state.name,
+          password: this.state.password,
+          email: this.state.email,
+          no: this.state.no,
+          city: this.state.city,
+          vehicleType: this.state.vehicleType
+        }
+        axios.post("http://localhost:4000/registerVehicle", registered)
+        .then(response =>{
+          if(response.status == 200) {
+            toast.success("Added Successfully");
+            setTimeout(() => {
+              history.push('/sign-in')
+            }, 1500)
+          } else {
+            toast.error("Something Went Wrong!");
+          }
+        })
+    } catch(err) {
+        console.log(err)
     }
-    axios.post("http://localhost:4000/registerVehicle", registered)
-    .then(response =>{
-      console.log(response.data)
-    })
   }
 
   render() {
