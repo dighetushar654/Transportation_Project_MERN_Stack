@@ -39,6 +39,7 @@ class SignInForm extends Component {
 
     axios.post("http://localhost:4000/registerVehicle/signin", data).then(res =>{
       console.log(res)
+      window.location.href = "/services"
     }).catch(err =>{
       console.log(err)
     })

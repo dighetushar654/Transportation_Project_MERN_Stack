@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Button } from './Button';
 import { Link } from 'react-router-dom';
 import './Navbar.css';
+import { BsBoxArrowInLeft } from "react-icons/bs";
+
 
 function Navbar() {
   const [click, setClick] = useState(false);
@@ -66,6 +68,7 @@ function Navbar() {
                 onClick={closeMobileMenu}
               >
                 Sign Up
+                <BsBoxArrowInLeft/>
               </Link>
             </li>
           </ul>

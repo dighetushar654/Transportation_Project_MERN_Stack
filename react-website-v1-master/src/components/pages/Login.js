@@ -40,6 +40,7 @@ class Login extends Component {
 
     axios.post("http://localhost:4000/registerUser/signin", data).then(res =>{
       console.log(res)
+      window.location.href = "/services"
     }).catch(err =>{
       console.log(err)
     })
