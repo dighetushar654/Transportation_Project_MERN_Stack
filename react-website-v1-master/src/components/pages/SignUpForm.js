@@ -5,9 +5,8 @@ import { ToastContainer, toast } from 'react-toastify';
 import {useHistory} from 'react-router-dom';
 
 class SignUpForm extends Component {
-  
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       email: "",
       password: "",
@@ -47,9 +46,7 @@ class SignUpForm extends Component {
         .then(response =>{
           if(response.status == 200) {
             toast.success("Added Successfully");
-            setTimeout(() => {
-              history.push('/sign-in')
-            }, 1500)
+            window.location.href = "/vehicle#/react-auth-ui/sign-in"
           } else {
             toast.error("Something Went Wrong!");
           }
