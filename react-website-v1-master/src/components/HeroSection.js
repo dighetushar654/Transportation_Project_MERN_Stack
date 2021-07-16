@@ -16,7 +16,7 @@ function HeroSection() {
           buttonStyle='btn--primary'
           buttonSize='btn--large'
         >
-          FOR VEHICLES
+          REGISTER VEHICLE
         </Button1>
         <Button
           className='btns'
@@ -24,7 +24,7 @@ function HeroSection() {
           buttonSize='btn--large'
           onClick={console.log('hey')}
         >
-          FOR USER
+          GET STARTED
         </Button>
       </div>
     </div>

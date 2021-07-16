@@ -24,8 +24,8 @@ function Cards() {
               label='APE MINI'
               path='/services'
             />
-          </ul>
-          <ul className='cards__items'>
+          {/* </ul>
+          <ul className='cards__items'> */}
             <CardItem
               src='images/tempo.jpg'
               text='Medium load'
