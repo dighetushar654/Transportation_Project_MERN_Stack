@@ -2,11 +2,14 @@ import React, { Component } from "react";
 import { HashRouter as Router, Route, NavLink } from "react-router-dom";
 import Registration from './Registration';
 import Login from './Login';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 class SignUp extends Component {
   render() {
     return (
       <>
         <Router basename="/react-auth-ui/">
+        <ToastContainer/> 
         <div className="App">
           <div className="appAside" />
           <div className="appForm">
