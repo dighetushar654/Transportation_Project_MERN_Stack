@@ -47,9 +47,8 @@ class SignUpForm extends Component {
         .then(response =>{
           if(response.status == 200) {
             toast.success("Added Successfully");
-            setTimeout(() => {
-              history.push('/sign-in')
-            }, 1500)
+            window.location.href = "/vehicle#/react-auth-ui/sign-in"
+
           } else {
             toast.error("Something Went Wrong!");
           }
