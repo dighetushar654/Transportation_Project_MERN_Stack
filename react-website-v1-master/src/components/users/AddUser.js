@@ -22,8 +22,11 @@ const AddUser = () => {
     history.push("/");
   };
   return (
+    
     <div className="container">
+     
       <div className="w-75 mx-auto shadow p-5">
+      
         <h2 className="text-center mb-4">Add A User</h2>
         <form onSubmit={e => onSubmit(e)}>
 
