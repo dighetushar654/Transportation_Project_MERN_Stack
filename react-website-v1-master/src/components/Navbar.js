@@ -43,7 +43,7 @@ function Navbar() {
                 Home
               </Link>
             </li>
-            <li className='nav-item'>
+            {/* <li className='nav-item'>
               <Link
                 to='/services'
                 className="btn btn-outline-light"
@@ -51,7 +51,7 @@ function Navbar() {
               >
                 Services
               </Link>
-            </li>
+            </li> */}
             <li className='nav-item'>
               <Link
                 to='/vehicle'
@@ -62,7 +62,7 @@ function Navbar() {
               </Link>
             </li>
             <li>
-            <Link className="btn btn-outline-light" to="/users/add">Add User</Link>
+            {/* <Link className="btn btn-outline-light" to="/users/add">Add User</Link> */}
 
               <Link
                 to='/sign-up'
