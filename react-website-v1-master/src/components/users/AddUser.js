@@ -67,7 +67,7 @@ const AddUser = () => {
         <label for="floatingPassword">Enter Your Details</label>
         </div>
         <div className="d-grid gap-2 d-md-flex justify-content-md-end">
-        <button type="submit" className="btn btn-primary">Submit</button>
+        <button type="submit" className="btn btn-light">Submit</button>
         </div>
         </form>
       </div>
