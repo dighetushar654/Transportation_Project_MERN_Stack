@@ -6,6 +6,7 @@ import Posts from '../Posts/Posts';
 import Form from '../Form/Form';
 import { getPosts } from '../../actions/posts';
 import useStyles from '../../styles';
+import { NavLink } from 'react-router-dom';
 // import memories from '../../images/memories.png';
 
 const Services = () => {
@@ -17,8 +18,13 @@ const Services = () => {
     dispatch(getPosts());
   }, [currentId, dispatch]);
 
+
   return (
+    
     <Container maxWidth="lg">
+      <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+      <NavLink class="btn btn-light" exact to="/UserHome" role="button">Go To User Page</NavLink>
+      </div>
       <AppBar className={classes.appBar} position="static" color="inherit">
         <Typography className={classes.heading} variant="h2" align="center">Vehicle Owner</Typography>
         {/* <img className={classes.image} src={memories} alt="icon" height="60" /> */}
