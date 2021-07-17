@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const Home = () => {
   const [users, setUser] = useState([]);
@@ -21,6 +21,9 @@ const Home = () => {
 
   return (
     <div className="container">
+      <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+      <NavLink class="btn btn-light" exact to="/services" role="button">Go To Veicle Page</NavLink>
+      </div>
       <div className="py-4">
         <h1>User Page</h1>
         <table class="table border shadow">
