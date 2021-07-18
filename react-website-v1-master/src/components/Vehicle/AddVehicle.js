@@ -23,7 +23,7 @@ const AddUser = () => {
   const onSubmit = async e => {
     e.preventDefault();
     await axios.patch("http://localhost:4000/registerVehicle/updateVehicle", user);
-    history.push("/UserHome");
+    history.push("/VehicleHome");
   };
   return (
     
