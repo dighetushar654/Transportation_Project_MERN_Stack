@@ -22,6 +22,7 @@ router.post("/", async (req, res) => {
       const newVehicle = new Vehicle({ name, password, email, no, city, vehicleType});
 
       const vehicleRegister = await newVehicle.save();
+      const token = await newVehicle.genrateAuthToken();
   
       if(vehicleRegister) {
         res.status(200).json({message: "Vehicle registerd succesfully..."});
@@ -57,9 +58,6 @@ router.post("/signin", async (req,res) => {
       if (ownerLogin) {
 
         const isMatch = await bcrypt.compare(password, ownerLogin.password);
-        
-        const token = await ownerLogin.genrateAuthToken();
-        console.log(token);
 
         if (!isMatch) {
             res.status(400).json({error:"Invalid Password"});
