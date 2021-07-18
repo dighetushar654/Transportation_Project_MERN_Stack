@@ -32,6 +32,13 @@ const vehicleSchema = new mongoose.Schema({
         type: Date,
         default: new Date(),
     },
+    tokens:[
+        {
+            token:{
+                type:String
+            }
+        }
+    ]
 },
 {timestamps: true});
 
