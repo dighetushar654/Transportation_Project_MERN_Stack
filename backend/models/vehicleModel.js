@@ -23,15 +23,16 @@ const vehicleSchema = new mongoose.Schema({
     vehicleType: {
         type: String
     },
-    title: String,
-    message: String,
-    creator: String,
-    tags: [String],
-    selectedFile: String,
-    createdAt: {
-        type: Date,
-        default: new Date(),
+    rout: {
+        type: String
     },
+    cost: {
+        type: Number
+    },
+    status: {
+        type: String
+    }
+    
 },
 {timestamps: true});
 
