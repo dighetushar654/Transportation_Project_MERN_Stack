@@ -7,19 +7,19 @@ const AddUser = () => {
   const [user, setUser] = useState({
     name: "",
     email: "",  
-    phone: "",
+    no: "",
     details: ""
   });
 
-  const { name, email, phone, details } = user;
+  const { name, email, no, details } = user;
   const onInputChange = e => {
     setUser({ ...user, [e.target.name]: e.target.value });
   };
 
   const onSubmit = async e => {
     e.preventDefault();
-    await axios.post("http://localhost:3003/users", user);
-    history.push("/");
+    await axios.patch("http://localhost:4000/registerUser/updateUser", user);
+    history.push("/UserHome");
   };
   return (
     
@@ -50,9 +50,9 @@ const AddUser = () => {
         </div>
         <div className="form-floating mb-3">
         <input type="text" class="form-control" id="floatingInput" 
-        placeholder="name@example.com"
-        name="phone"
-        value={phone}
+        placeholder="phone"
+        name="no"
+        value={no}
         onChange={e => onInputChange(e)}
         />
         <label for="floatingInput">Enter Your Phone Number</label>
@@ -67,7 +67,7 @@ const AddUser = () => {
         <label for="floatingPassword">Enter Your Details</label>
         </div>
         <div className="d-grid gap-2 d-md-flex justify-content-md-end">
-        <button type="submit" className="btn btn-light">Submit</button>
+        <button type="submit" className="btn btn-light" onClick= {onSubmit}>Submit</button>
         </div>
         </form>
       </div>
