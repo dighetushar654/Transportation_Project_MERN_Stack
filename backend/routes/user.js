@@ -1,3 +1,4 @@
+const mongoose = require("mongoose");
 const router = require("express").Router();
 const User = require("../models/userModel");
 const bcrypt = require("bcryptjs");
@@ -48,7 +49,36 @@ router.post("/", async (req, res) => {
     }
   });
 
-  router.get("/:id", jwtAuth, async (req, res) => {
+  router.patch("/updateUser", async (req, res) => {
+    const {name, email, details, no,} = req.body;
+    try {
+      const userExist = await User.findOne({ email:email })
+      // console.log(userExist);
+ 
+      if(userExist) {
+        const key = userExist._id;
+        // console.log(key);
+         const updateuser = new User({ name, email, details, no});
+        User.findByIdAndUpdate(key, {name: req.body.name,
+        email: req.body.email,  details: req.body.details, no: req.body.no}).then(() => 
+        {res.status(200).json({message: "User Update succesfully..."});
+        })
+      }
+    }
+    catch(err) {
+    }
+  })
+
+  router.get("/", async (req, res) => {
+    try {
+      const data = await User.find();
+      res.status(200).json(data);
+  } catch (err) {
+      res.status(500).json(err);
+  }
+  })
+
+  router.get("/:id", async (req, res) => {
     try {
         const data = await User.findById(req.params.id);
         res.status(200).json(data);
@@ -85,6 +115,16 @@ router.post("/signin", async (req,res) => {
       res.status(500).json(err);
       console.log(err);
     }
+});
+
+router.delete('/:id', async (req, res) => {
+  const { id } = req.params;
+
+  if (!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send(`No post with id: ${id}`);
+
+  await User.findByIdAndRemove(id);
+
+  res.json({ message: "Post deleted successfully." });
 });
 
   module.exports = router; 

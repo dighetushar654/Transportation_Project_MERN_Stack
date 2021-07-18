@@ -15,6 +15,9 @@ const userSchema = new mongoose.Schema({
     no: {
         type:Number,  
     },
+    details:{
+        type: String,
+    },
     tokens:[
         {
             token:{

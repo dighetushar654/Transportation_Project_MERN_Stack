@@ -15,18 +15,29 @@ router.get('/', async (req, res) => {
     }
 });
 
-router.post('/',  async (req, res) => {
-    const { title, message, selectedFile, creator, tags } = req.body;
+router.patch('/:id',  async (req, res) => {
 
-    const newPostMessage = new PostMessage({ title, message, selectedFile, creator, tags })
+    const { id } = req.params;
+    const { title, message, creator, selectedFile, tags } = req.body;
+    
+    if (!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send(`No post with id: ${id}`);
 
-    try {
-        await newPostMessage.save();
+    const updatedPost = { creator, title, message, tags, selectedFile, _id: id };
 
-        res.status(201).json(newPostMessage );
-    } catch (error) {
-        res.status(409).json({ message: error.message });
-    }
+    await PostMessage.findByIdAndUpdate(id, updatedPost, { new: true });
+
+    res.json(updatedPost);
+    // const { title, message, selectedFile, creator, tags } = req.body;
+
+    // const newPostMessage = new PostMessage({ title, message, selectedFile, creator, tags })
+
+    // try {
+    //     await newPostMessage.update();
+
+    //     res.status(201).json(newPostMessage );
+    // } catch (error) {
+    //     res.status(409).json({ message: error.message });
+    // }
 });
 
 router.get('/:id', async (req, res) => { 
@@ -41,18 +52,18 @@ router.get('/:id', async (req, res) => {
     }
 });
 
-router.patch('/:id', async (req, res) => {
-    const { id } = req.params;
-    const { title, message, creator, selectedFile, tags } = req.body;
+// router.patch('/:id', async (req, res) => {
+//     const { id } = req.params;
+//     const { title, message, creator, selectedFile, tags } = req.body;
     
-    if (!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send(`No post with id: ${id}`);
+//     if (!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send(`No post with id: ${id}`);
 
-    const updatedPost = { creator, title, message, tags, selectedFile, _id: id };
+//     const updatedPost = { creator, title, message, tags, selectedFile, _id: id };
 
-    await PostMessage.findByIdAndUpdate(id, updatedPost, { new: true });
+//     await PostMessage.findByIdAndUpdate(id, updatedPost, { new: true });
 
-    res.json(updatedPost);
-});
+//     res.json(updatedPost);
+// });
 
 router.delete('/:id', async (req, res) => {
     const { id } = req.params;

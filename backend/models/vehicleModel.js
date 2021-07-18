@@ -23,15 +23,13 @@ const vehicleSchema = new mongoose.Schema({
     vehicleType: {
         type: String
     },
-    title: String,
-    message: String,
-    creator: String,
-    tags: [String],
-    selectedFile: String,
-    createdAt: {
-        type: Date,
-        default: new Date(),
+    rout: {
+        type: String
     },
+    cost: {
+        type: Number
+    },
+<<<<<<< HEAD
     tokens:[
         {
             token:{
@@ -39,6 +37,12 @@ const vehicleSchema = new mongoose.Schema({
             }
         }
     ]
+=======
+    status: {
+        type: String
+    }
+    
+>>>>>>> 7b47012010996e3280f75e08866d484622bf7b8a
 },
 {timestamps: true});
 
