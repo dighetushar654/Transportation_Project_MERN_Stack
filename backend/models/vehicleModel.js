@@ -31,10 +31,6 @@ const vehicleSchema = new mongoose.Schema({
     },
     status: {
         type: String
-<<<<<<< HEAD
-    }
-    
-=======
     },
     tokens:[
         {
@@ -43,7 +39,6 @@ const vehicleSchema = new mongoose.Schema({
             }
         }
     ]
->>>>>>> 4e1f58cc0a90d9b6c92bacad8ac9552a7f5aff3c
 },
 {timestamps: true});   
 
