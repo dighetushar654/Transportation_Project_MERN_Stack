@@ -28,6 +28,7 @@
   font-size: 2rem;
   display: flex;
   align-items: center;
+  margin-bottom: 35px;
 }
 
 .fa-typo3 {
@@ -48,6 +49,7 @@
 
 .nav-item {
   height: 80px;
+
 }
 
 .nav-links {
@@ -55,8 +57,11 @@
   display: flex;
   align-items: center;
   text-decoration: none;
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 1rem 1.5rem ;
   height: 100%;
+  margin-right: 0.5rem;
+
+
 }
 
 .nav-links:hover {
