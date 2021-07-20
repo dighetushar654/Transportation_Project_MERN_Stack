@@ -29,20 +29,10 @@ const vehicleSchema = new mongoose.Schema({
     cost: {
         type: Number
     },
-<<<<<<< HEAD
-    tokens:[
-        {
-            token:{
-                type:String
-            }
-        }
-    ]
-=======
     status: {
         type: String
     }
     
->>>>>>> 7b47012010996e3280f75e08866d484622bf7b8a
 },
 {timestamps: true});
 
