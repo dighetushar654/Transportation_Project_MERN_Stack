@@ -28,8 +28,8 @@ function Navbar() {
 
   return (
     <>
-      <nav className='navbar'>
-        <div className='navbar-container'>
+      <nav className='navbar navbar-light bg-light'>
+        <div className='container-fluid'>
           <Link to='/' className='navbar-logo' onClick={closeMobileMenu}>
             TRANS
             <i class='fab fa-typo3' />
@@ -39,7 +39,7 @@ function Navbar() {
           </div>
           <ul className={click ? 'nav-menu active' : 'nav-menu'}>
             <li className='nav-item'>
-              <Link to='/' className="btn btn-outline-light" onClick={closeMobileMenu}>
+              <Link to='/' className="nav-links" onClick={closeMobileMenu}>
                 Home
               </Link>
             </li>
@@ -55,18 +55,16 @@ function Navbar() {
             <li className='nav-item'>
               <Link
                 to='/vehicle'
-                className="btn btn-outline-light"
+                className="nav-links"
                 onClick={closeMobileMenu}
               >
                 Add Vehicle With Us
               </Link>
             </li>
-            <li>
-            {/* <Link className="btn btn-outline-light" to="/users/add">Add User</Link> */}
-
+            <li className='nav-item'>
               <Link
                 to='/sign-up'
-                className="btn btn-outline-light"
+                className="nav-links"
                 onClick={closeMobileMenu}
               >
                 Sign Up

@@ -31,10 +31,23 @@ const vehicleSchema = new mongoose.Schema({
     },
     status: {
         type: String
+<<<<<<< HEAD
     }
     
+=======
+    },
+    tokens:[
+        {
+            token:{
+                type:String
+            }
+        }
+    ]
+>>>>>>> 4e1f58cc0a90d9b6c92bacad8ac9552a7f5aff3c
 },
-{timestamps: true});
+{timestamps: true});   
+
+
 
 
 //we are the hashing the password
