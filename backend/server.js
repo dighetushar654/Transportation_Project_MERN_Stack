@@ -1,25 +1,28 @@
 const express = require("express");
 const bodyParser = require('body-parser');
-const app = express();
-var cors = require('cors')
-app.use(cors())
-
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
-dotenv.config();
-require("./db/conn");
+//User Routes
 const userRoute = require("./routes/user");
 const vehicleRoute = require("./routes/vehicle");
 const homeimgRoute = require("./routes/homeimg");
-// import postRoutes from './routes/posts.js';
 const postRoutes = require("./routes/posts.js")
 
-const router = express.Router();
+// App Config
+const app = express();
+dotenv.config();                // instanciating express() in app variable
+var cors = require('cors')      // to use .env variables
+app.use(cors())                 // allow any origin
+const Port = process.env.Port;
 
-app.use(bodyParser.json({ limit: '30mb', extended: true }))
-app.use(bodyParser.urlencoded({ limit: '30mb', extended: true }))
-app.use(cors());
+// Database connection 
+require("./db/conn");           // imported the DB connection
 
+// Body parsers and set limit of data
+app.use(bodyParser.json({ limit: '10mb', extended: true }))
+app.use(bodyParser.urlencoded({ limit: '10mb', extended: true }))
+
+//Middalwares
 app.use(express.json());
 app.use("/registerUser", userRoute);
 app.use("/registerVehicle", vehicleRoute);
@@ -27,7 +30,13 @@ app.use("/homeimages", homeimgRoute);
 app.use('/posts', postRoutes);
 
 
+//Default Route
+app.get("/", (req, res) => {
+    res.send("Hello From Server All Ok.........");
+});
 
-app.listen(4000, () => {
-    console.log(`Server Running On Port 4000`);
+
+//Port for listening
+app.listen(Port, () => {
+    console.log(`Server Running On Port ${Port}`);
 })

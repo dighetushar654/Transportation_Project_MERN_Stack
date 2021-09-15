@@ -27,17 +27,6 @@ router.patch('/:id',  async (req, res) => {
     await PostMessage.findByIdAndUpdate(id, updatedPost, { new: true });
 
     res.json(updatedPost);
-    // const { title, message, selectedFile, creator, tags } = req.body;
-
-    // const newPostMessage = new PostMessage({ title, message, selectedFile, creator, tags })
-
-    // try {
-    //     await newPostMessage.update();
-
-    //     res.status(201).json(newPostMessage );
-    // } catch (error) {
-    //     res.status(409).json({ message: error.message });
-    // }
 });
 
 router.get('/:id', async (req, res) => { 

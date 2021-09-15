@@ -16,13 +16,13 @@ function Cards() {
               src='images/dumper.jpg'
               text='Full Load Services'
               label='HYDRAULIC TRUCKS'
-              path='/services'
+              path='/sign-up#/'
             />
             <CardItem
               src='images/Piaggio-Ape.jpg'
               text='Low load and 3 wheels'
               label='APE MINI'
-              path='/services'
+              path='/sign-up#/'
             />
           {/* </ul>
           <ul className='cards__items'> */}
@@ -30,25 +30,25 @@ function Cards() {
               src='images/tempo.jpg'
               text='Medium load'
               label='TEMPO'
-              path='/services'
+              path='/sign-up#/'
             />
             <CardItem
               src='images/tractor.jpg'
               text='For all farming servicess'
               label='TRACTOR'
-              path='/products'
+              path='/sign-up#/'
             />
             <CardItem
               src='images/mini.jpg'
               text='Medium load carring capacity'
               label='PICK UP'
-              path='/sign-up'
+              path='/sign-up#/'
             />
               <CardItem
               src='images/iceare.jpg'
               text='Full load without hydraulic '
               label='EICHER'
-              path='/sign-up'
+              path='/sign-up#/'
             />
           </ul>
         </div>
