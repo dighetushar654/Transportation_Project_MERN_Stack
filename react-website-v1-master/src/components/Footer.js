@@ -37,15 +37,15 @@ function Footer() {
             <Link to='/'>Support</Link>
             <Link to='/'>Destinations</Link>
           </div>
-        </div>
-        <div className='footer-link-wrapper'>
-          <div class='footer-link-items'>
+        {/* </div>
+        <div className='footer-link-wrapper'> */}
+          {/* <div class='footer-link-items'>
             <h2>Social Media</h2>
             <Link to='/'>Instagram</Link>
             <Link to='/'>Facebook</Link>
             <Link to='/'>Youtube</Link>
             <Link to='/'>Twitter</Link>
-          </div>
+          </div> */}
         </div>
       </div>
       <section class='social-media'>
@@ -56,8 +56,9 @@ function Footer() {
               <i class='fab fa-typo3' />
             </Link>
           </div>
-          <small class='website-rights'>TRANS © 2021</small>
-          <small class='website-rights'>Kiran_Kumawat Tushar_Dighe</small>
+          <small class='website-rightsTrans'>TRANS © 2021</small>
+          <small class='website-rights'>KiraN_KumawaT</small>
+          <small class='website-rights'>TushaR_DighE</small>
           <div class='social-icons'>
             <Link
               class='social-icon-link facebook'
