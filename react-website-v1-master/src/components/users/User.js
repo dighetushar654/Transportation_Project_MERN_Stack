@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
-import axios from "axios";
+import axios from "../../axios";
 
 const User = () => {
   const [user, setUser] = useState({
@@ -14,7 +14,7 @@ const User = () => {
     loadUser();
   }, []);
   const loadUser = async () => {
-    const res = await axios.get(`http://localhost:4000/registerUser/${id}`);
+    const res = await axios.get(`/registerUser/${id}`);
     setUser(res.data);
   };
   return (

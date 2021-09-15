@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import axios from 'axios'
+import axios from '../../axios'
 import { useHistory } from "react-router-dom";
 
 const AddUser = () => {
@@ -22,7 +22,7 @@ const AddUser = () => {
 
   const onSubmit = async e => {
     e.preventDefault();
-    await axios.patch("http://localhost:4000/registerVehicle/updateVehicle", user);
+    await axios.patch("/registerVehicle/updateVehicle", user);
     history.push("/VehicleHome");
   };
   return (

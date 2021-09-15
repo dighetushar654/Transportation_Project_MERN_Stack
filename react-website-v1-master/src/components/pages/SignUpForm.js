@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import axios from "axios";
+import axios from "../../axios";
 import { ToastContainer, toast } from 'react-toastify';
 import {useHistory} from 'react-router-dom';
 
@@ -42,7 +42,7 @@ class SignUpForm extends Component {
           city: this.state.city,
           vehicleType: this.state.vehicleType
         }
-        axios.post("http://localhost:4000/registerVehicle", registered)
+        axios.post("/registerVehicle", registered)
         .then(response =>{
           if(response.status == 200) {
             toast.success("Added Successfully");

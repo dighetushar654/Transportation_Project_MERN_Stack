@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import axios from "axios";
+import axios from "../../axios";
 
 import '../../App.css';
 import {
@@ -38,7 +38,7 @@ class Login extends Component {
       password: this.state.password
     }
 
-    axios.post("http://localhost:4000/registerUser/signin", data).then(res =>{
+    axios.post("/registerUser/signin", data).then(res =>{
       console.log(res)
       window.location.href = "/UserHome"
     }).catch(err =>{

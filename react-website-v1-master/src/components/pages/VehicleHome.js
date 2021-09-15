@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
+import axios from "../../axios";
 import { Link, NavLink } from "react-router-dom";
 
 const Home = () => {
@@ -10,12 +10,12 @@ const Home = () => {
   }, []);
 
   const loadUsers = async () => {
-    const result = await axios.get("http://localhost:4000/registerVehicle");
+    const result = await axios.get("/registerVehicle");
     setUser(result.data.reverse());
   };
 
   const deleteUser = async id => {
-    await axios.delete(`http://localhost:4000/registerVehicle/${id}`);
+    await axios.delete(`/registerVehicle/${id}`);
     loadUsers();
   };
 
